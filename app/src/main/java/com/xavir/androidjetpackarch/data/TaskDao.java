@@ -23,8 +23,8 @@ public interface TaskDao {
     void delete(Task task);
 
     @Query("DELETE FROM task_table")
-    void deleteAllTask();
+    void deleteAllTasks();
 
-    @Query("SELECT * FROM task_table ORDER BY priorty DESC")
+    @Query("SELECT * FROM task_table ORDER BY priority DESC")
     LiveData<List<Task>> getAllTasks();
 }

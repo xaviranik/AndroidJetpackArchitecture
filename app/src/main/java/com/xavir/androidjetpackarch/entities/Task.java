@@ -4,19 +4,19 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "task_table")
-public class Task {
+public class Task{
 
     @PrimaryKey(autoGenerate = true)
     private int id;
 
     private String title;
     private String description;
-    private String priorty;
+    private int priority;
 
-    public Task(String title, String description, String priorty) {
+    public Task(String title, String description, int priority) {
         this.title = title;
         this.description = description;
-        this.priorty = priorty;
+        this.priority = priority;
     }
 
     public void setId(int id) {
@@ -35,7 +35,7 @@ public class Task {
         return description;
     }
 
-    public String getPriorty() {
-        return priorty;
+    public int getPriority() {
+        return priority;
     }
 }
