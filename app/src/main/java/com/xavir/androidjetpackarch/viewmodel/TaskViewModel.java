@@ -5,18 +5,21 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModel;
 
 import com.xavir.androidjetpackarch.entities.Task;
 import com.xavir.androidjetpackarch.repository.TaskRepository;
 
 import java.util.List;
 
-public class TaskViewModel extends AndroidViewModel {
+public class TaskViewModel extends ViewModel {
     private TaskRepository taskRepository;
     private LiveData<List<Task>> allTasks;
 
-    public TaskViewModel(@NonNull Application application) {
-        super(application);
+    public void init(Application application) {
+        if(allTasks != null) {
+            return;
+        }
         taskRepository = new TaskRepository(application);
         allTasks = taskRepository.getAllTasks();
     }
