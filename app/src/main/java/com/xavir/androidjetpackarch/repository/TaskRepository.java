@@ -34,7 +34,7 @@ public class TaskRepository {
     }
 
     public void deleteAllTasks() {
-        new DeleteTaskAsyncTask(taskDao).execute();
+        new DeleteAllTaskAsyncTask(taskDao).execute();
     }
 
     public LiveData<List<Task>> getAllTasks() {
@@ -83,10 +83,10 @@ public class TaskRepository {
         }
     }
 
-    private static class deleteAllTasksAsyncTask extends AsyncTask<Void, Void, Void> {
+    private static class DeleteAllTaskAsyncTask extends AsyncTask<Void, Void, Void> {
         private TaskDao taskDao;
 
-        private deleteAllTasksAsyncTask(TaskDao taskDao) {
+        private DeleteAllTaskAsyncTask(TaskDao taskDao) {
             this.taskDao = taskDao;
         }
 
